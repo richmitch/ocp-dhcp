@@ -10,6 +10,15 @@ spec:
       app: dnsmasq-dhcp
   template:
     metadata:
+      annotations:
+        k8s.v1.cni.cncf.io/networks: |
+          [
+            {
+              "name": "multus-network",
+              "interface": "eth1",
+              "ips": ["192.168.1.100/24"]
+            }
+          ]
       labels:
         app: dnsmasq-dhcp
     spec:
@@ -17,20 +26,22 @@ spec:
       - name: dnsmasq
         image: image-registry.openshift-image-registry.svc:5000/dnsmasq/dnsmasq:latest
         imagePullPolicy: IfNotPresent
-        command: ["/bin/bash", "-c"]
+        command: ["dnsmasq", "-d"]
         ports:
         - name: dhcp
           containerPort: 67
           protocol: UDP
-        securityContext:
-          privileged: true
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         volumeMounts:
         - name: dnsmasq-conf
           mountPath: /etc/dnsmasq.conf
           subPath: dnsmasq.conf
+        - name: leases
+          mountPath: /var/lib/dnsmasq
       volumes:
       - name: dnsmasq-conf
         configMap:
           name: dnsmasq-dhcp
+      - name: leases
+        emptyDir: {}          
