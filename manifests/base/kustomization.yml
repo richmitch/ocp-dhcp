@@ -3,8 +3,8 @@ kind: Kustomization
 
 resources:
   - dhcp-buildconfig.yml
-#  - dhcp-configmap.yml
-#  - dhcp-deployment.yml
+  - dhcp-configmap.yml
+  - dhcp-deployment.yml
   - dhcp-imagestream.yml
   - dhcp-namespace.yml
-#  - dhcp-service.yml
+  - dhcp-service.yml

@@ -7,3 +7,4 @@ data:
     dhcp-range=192.168.100.100,192.168.100.150,24h
     dhcp-option=option:router,192.168.100.1
     dhcp-option=option:dns-server,192.168.20.20
+    dhcp-leasefile=/etc/dnsmasq.leases

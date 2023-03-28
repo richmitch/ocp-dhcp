@@ -15,13 +15,15 @@ spec:
     spec:
       containers:
       - name: dnsmasq
-        image: image-registry.openshift-image-registry.svc:5000/dnsmasq:latest
+        image: image-registry.openshift-image-registry.svc:5000/dnsmasq/dnsmasq:latest
         imagePullPolicy: IfNotPresent
-        command: ["dnsmasq", "-d"]
+        command: ["/bin/bash", "-c"]
         ports:
         - name: dhcp
           containerPort: 67
           protocol: UDP
+        securityContext:
+          privileged: true
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         volumeMounts:
