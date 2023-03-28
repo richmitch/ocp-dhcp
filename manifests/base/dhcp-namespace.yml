@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dnsmasq
+  annotations:
+    openshift.io/description: DHCP server running in dnsmasq
+    openshift.io/display-name: dnsmasq

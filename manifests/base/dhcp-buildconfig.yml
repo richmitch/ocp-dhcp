@@ -1,0 +1,28 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: dnsmasq-build
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: dnsmasq-image:latest
+  source:
+    git:
+      uri: https://github.com/richmitch/ocp_dhcp
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+      from:
+        kind: ImageStreamTag
+        name: ubi8:latest
+        namespace: openshift
+  triggers:
+  - type: ConfigChange
+  - type: ImageChange
+    imageChange:
+      from:
+        kind: ImageStreamTag
+        name: ubi8:latest
+        namespace: openshift

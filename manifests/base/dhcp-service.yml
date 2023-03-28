@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dnsmasq-dhcp
+  labels:
+    app: dnsmasq-dhcp
+spec:
+  selector:
+    app: dnsmasq-dhcp
+  ports:
+  - name: dhcp
+    port: 67
+    protocol: UDP
