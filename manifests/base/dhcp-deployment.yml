@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: dnsmasq
-        image: image-registry.openshift-image-registry.svc:5000/dnsmasq-image
+        image: image-registry.openshift-image-registry.svc:5000/dnsmasq:latest
         imagePullPolicy: IfNotPresent
         command: ["dnsmasq", "-d"]
         ports:

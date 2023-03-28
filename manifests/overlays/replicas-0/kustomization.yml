@@ -9,8 +9,8 @@ bases:
 patches:
   - target:
       kind: Deployment
-      name: dhcp
+      name: dnsmasq-dhcp
     patch: |-
       - op: replace
         path: /spec/replicas
-        value: 1
+        value: 0

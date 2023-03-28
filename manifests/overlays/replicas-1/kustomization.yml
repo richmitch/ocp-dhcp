@@ -1,7 +1,7 @@
 kind: Kustomization
 apiVersion: kustomize.config.k8s.io/v1beta1
 
-namespace: dhcp
+namespace: dnsmasq
 
 bases:
   - ../../base
@@ -9,8 +9,8 @@ bases:
 patches:
   - target:
       kind: Deployment
-      name: dhcp
+      name: dnsmasq-dhcp
     patch: |-
       - op: replace
         path: /spec/replicas
-        value: 0
+        value: 1

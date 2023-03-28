@@ -1,0 +1,12 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    app: dnsmasq
+    app.kubernetes.io/component: dnsmasq
+    app.kubernetes.io/instance: dnsmasq
+  name: dnsmasq
+  namespace: dnsmasq
+spec:
+  lookupPolicy:
+    local: false

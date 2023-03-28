@@ -6,23 +6,26 @@ spec:
   output:
     to:
       kind: ImageStreamTag
-      name: dnsmasq-image:latest
+      name: dnsmasq:latest
   source:
     git:
-      uri: https://github.com/richmitch/ocp_dhcp
+      uri: https://github.com/richmitch/ocp-dhcp
     type: Git
   strategy:
     dockerStrategy:
       dockerfilePath: Dockerfile
       from:
         kind: ImageStreamTag
-        name: ubi8:latest
+        name: tools:latest
         namespace: openshift
+      env:
+        - name: BUILD_LOGLEVEL
+          value: '2'
   triggers:
   - type: ConfigChange
   - type: ImageChange
     imageChange:
       from:
         kind: ImageStreamTag
-        name: ubi8:latest
+        name: tools:latest
         namespace: openshift
