@@ -7,4 +7,5 @@ resources:
   - dhcp-deployment.yml
   - dhcp-imagestream.yml
   - dhcp-namespace.yml
+  - dhcp-persistentvolumeclaim.yml
   - dhcp-service.yml

@@ -44,4 +44,5 @@ spec:
         configMap:
           name: dnsmasq-dhcp
       - name: leases
-        emptyDir: {}          
+        persistentVolumeClaim:
+          claimName: dnsmasq-dhcp-leases-pvc
