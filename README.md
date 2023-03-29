@@ -11,7 +11,7 @@ The dnsmasq image is created using the tools container from the Red Hat ubi8 ima
 ## Deployment
 Deployment is done using kustomize and there are two overlays provided for testing, one for a single replica and one with no replicas.
 
-I'm currently deploying it using the `oc` CLI and will add an OpenShift GitOps `Application` as part of a future iteration
+I'm currently deploying it using the `oc` CLI and have added an OpenShift GitOps `Application` that can be used as an alternative.
 
 ```bash
 [richmitch@asuspn50 ocp-dhcp]$ oc apply -k manifests/overlays/replicas-1
