@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: dnsmasq-dhcp
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: day-0
+  source:
+    path: manifests/overlays/replicas-1
+    repoURL: https://github.com/richmitch/ocp-dhcp
+    targetRevision: HEAD
