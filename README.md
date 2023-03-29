@@ -31,3 +31,7 @@ When privileged is true
 ```
 
 dnsmasq: cannot open or create lease file /var/lib/dnsmasq/dnsmasq.leases: Permission denied
+
+```
+(combined from similar events): MountVolume.MountDevice failed for volume "local-pv-dfacd728" : local: failed to mount device /mnt/local-storage/local-sc/vdb at /var/lib/kubelet/plugins/kubernetes.io/local-volume/mounts/local-pv-dfacd728 (fstype: xfs), error mount failed: exit status 32 Mounting command: systemd-run Mounting arguments: --description=Kubernetes transient mount for /var/lib/kubelet/plugins/kubernetes.io/local-volume/mounts/local-pv-dfacd728 --scope -- mount -t xfs -o defaults /mnt/local-storage/local-sc/vdb /var/lib/kubelet/plugins/kubernetes.io/local-volume/mounts/local-pv-dfacd728 Output: Running scope as unit: run-rcd6a70538e5b46fdb32acc0d77226096.scope mount: /var/lib/kubelet/plugins/kubernetes.io/local-volume/mounts/local-pv-dfacd728: wrong fs type, bad option, bad superblock on /dev/vdb, missing codepage or helper program, or other error.
+```
